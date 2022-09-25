@@ -34,4 +34,14 @@ public class UserService {
     public Optional<User> retrieveUserByEmailIdAndPhoneNumber (String phoneNumber,String emailId) {
         return userRepo.findByEmailIdAndPhoneNumber(emailId,phoneNumber);
     }
+
+    public void deleteUserById(Long id){
+        log.info("delete User for {}",id);
+        userRepo.deleteById(id);
+    }
+
+    public User addUser(User user){
+        log.info("delete User for {}",user.getUserName());
+        return userRepo.save(user);
+    }
 }
